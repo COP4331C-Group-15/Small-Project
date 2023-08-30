@@ -11,6 +11,7 @@
     border: solid;
     border-color: rgba(255, 255, 255, 40%);
     border-radius: 20px;
+    box-shadow: 4px 8px 10px rgba(255, 255, 255, 0.2);
 }
 
 .input-icon-container
@@ -38,13 +39,6 @@
 .text-input:focus
 {
     outline: none;
-}
-
-.input-accompany-icon
-{
-    height: 30px;
-    margin: 0;
-    padding: 0;
 }
 
 .line-for-input
