@@ -29,3 +29,11 @@ body
         background-position: 0 50%;
     }
 }
+
+.navbar
+{
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 80%);
+}
