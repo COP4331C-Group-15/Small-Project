@@ -51,3 +51,16 @@ h4
     margin: 0;
     padding: 0;
 }
+
+.footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    bottom: 0;
+    color: aliceblue;
+    background-color: rgba(48, 48, 48, 0.6);
+}
