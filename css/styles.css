@@ -9,9 +9,9 @@ body
     display: flex;
     justify-content: center;
     width: 100%;
-    background: linear-gradient(45deg, red, blue, purple);
+    background: linear-gradient(45deg, rgb(255, 75, 75), purple, blue);
     background-size: 300% 300%;
-    animation: color 12s ease-in-out infinite;
+    animation: color 8s ease-in-out infinite;
 }
 
 @keyframes color
