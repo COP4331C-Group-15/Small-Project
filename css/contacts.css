@@ -78,7 +78,7 @@
     background: linear-gradient(45deg, red, purple, blue);
     color: aliceblue;
     font-size: 16px;
-    font-weight: 800px;
+    font-weight: 600;
 }
 
 #add-contact-button
@@ -164,4 +164,59 @@
 #search-contacts-button img
 {
     height: 50px;
+}
+
+.contacts-and-description-container
+{
+    border: solid;
+    border-color: rgb(235, 235, 235);
+    border-radius: 20px;
+    margin-top: 40px;
+    width: calc(80%);
+}
+
+.description-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aliceblue;
+    border-radius: 14px 14px 0 0;
+    height: 100px;
+}
+
+.space-update-delete
+{
+    width: 250px;
+    height: 100px;
+}
+
+.description-text
+{
+    color: rgb(121, 119, 119);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.contacts-container
+{
+
+}
+
+.filler-contact
+{
+    width: calc(100%);
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.171);
+    border: solid;
+    border-width: 1px;
+    border-color: aliceblue;
+}
+
+.contacts-and-description-container-footer
+{
+    width: calc(100%);
+    height: 100px;
+    background-color: aliceblue;
+    border-radius: 0 0 14px 14px;
 }
