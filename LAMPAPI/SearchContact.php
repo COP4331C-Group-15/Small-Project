@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 	
-	$searchResults = "";
+	$userSearchResults = "";
 	$searchCount = 0;
 
 	// connection to the database
@@ -25,10 +25,10 @@
 		{
 			if( $searchCount > 0 )
 			{
-				$searchResults .= ",";
+				$userSearchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '"' . $row["Name"] . '"';
+			$userSearchResults .= '"' . $row["Name"] . '"';
 		}
 		
 		if( $searchCount == 0 )
@@ -37,7 +37,7 @@
 		}
 		else
 		{
-			returnWithInfo( $searchResults );
+			returnWithInfo( $userSearchResults );
 		}
 		
 		$stmt->close();
@@ -61,9 +61,9 @@
 		sendResultInfoAsJson( $retValue );
 	}
 	
-	function returnWithInfo( $searchResults )
+	function returnWithInfo( $userSearchResults )
 	{
-		$retValue = '{"results":[' . $searchResults . '],"error":""}';
+		$retValue = '{"results":[' . $userSearchResults . '],"error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 ?>
