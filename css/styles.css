@@ -32,6 +32,13 @@ body
     }
 }
 
+.sub-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 h4
 {
     font-size: 40px;
@@ -46,6 +53,7 @@ h4
     height: 100px;
     width: 100%;
     background-color: rgba(255, 255, 255, 40%);
+    box-shadow: 4px 8px 10px rgba(255, 255, 255, 0.2);
     z-index: 100;
 }
 
