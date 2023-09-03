@@ -53,8 +53,8 @@ h4
     align-items: center;
     height: 100px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 40%);
-    box-shadow: 4px 8px 10px rgba(255, 255, 255, 0.2);
+    background-color: rgba(197, 197, 197, 0.4);
+    box-shadow: 4px 8px 10px rgba(73, 73, 73, 0.2);
     z-index: 100;
 }
 
@@ -86,4 +86,5 @@ h4
     bottom: 0;
     color: aliceblue;
     background-color: rgba(48, 48, 48, 90%);
+    box-shadow: 4px 8px 10px rgba(73, 73, 73, 0.2);
 }
