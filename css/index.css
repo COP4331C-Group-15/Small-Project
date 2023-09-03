@@ -76,7 +76,14 @@
     text-decoration: none;
 }
 
-.login-result-container
+.login-result-container-present
 {
-    
+    background-color: aliceblue;
+    height: 100px;
+    width: 100px;
+}
+
+.login-result-container-not-present
+{
+
 }
