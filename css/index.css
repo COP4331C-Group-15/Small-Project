@@ -78,12 +78,17 @@
 
 .login-result-container-present
 {
-    background-color: aliceblue;
-    height: 100px;
-    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0.4);
+    height: 80px;
+    width: 380px;
+    margin-top: 20px;
 }
 
-.login-result-container-not-present
+.login-result-container-present p
 {
-
+    color:aliceblue;
+    font-size: 20px;
 }
