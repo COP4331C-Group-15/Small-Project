@@ -1,25 +1,113 @@
-// initalize fields from HTML elements
+const urlBase = 'http://COP4331-5.com/LAMPAPI';
+const extension = 'php';
 
-// from index.html
-let loginUsername = document.getElementById('login-username');
-let loginPassword = document.getElementById('login-password');
-let loginButton = document.getElementById('login-button');
+let userId = 0;
+let firstName = "";
+let lastName = "";
 
-// from signup.html
-let signupFirstName = document.getElementById('firstname');
-let signupLastName = document.getElementById('lastname');
-let signupUsername = document.getElementById('signup-username');
-let signupPassword = document.getElementById('signup-password');
-let signupReenterPassword = document.getElementById('reenter-password');
-let signupButton = document.getElementById('signup-button');
+function doLogin()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+	
+	let login = document.getElementById("login-username").value;
+	let password = document.getElementById("login-password").value;
+//	var hash = md5( password );
+	
+    // commented this line, seems unnecessary for now
+	// document.getElementById("login-result").innerHTML = "";
 
-// from contacts.html
-let createContactFirstname = document.getElementById('create-contact-firstname');
-let createContactLastname = document.getElementById('create-contact-lastname');
-let createContactEmail = document.getElementById('create-contact-email');
-let createContactPhone = document.getElementById('create-contact-phone');
-let addContactButton = document.getElementById('addd-contact-button');
-let logoutButton = document.getElementById('logout-button');
-let searchBarInput = document.getElementById('searchbar');
-let searchButton = document.getElementById('search-contacts-button');
-// Josh: I will add refresh button here eventually 
+	let tmp = {login:login,password:password};
+//	var tmp = {login:login,password:hash};
+	let jsonPayload = JSON.stringify( tmp );
+	
+	let url = urlBase + '/Login.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				let jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+				if( userId < 1 )
+				{		
+                    //commented this line, seems unnecessary for now
+					// document.getElementById("login-result").innerHTML = "User/Password combination incorrect";
+					return;
+				}
+		
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+
+				saveCookie();
+	
+				window.location.href = "contacts.html";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+        //commented this line, seems unnecessary for now
+		// document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+}
+
+function saveCookie()
+{
+	let minutes = 20;
+	let date = new Date();
+	date.setTime(date.getTime()+(minutes*60*1000));	
+	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+}
+
+function readCookie()
+{
+	userId = -1;
+	let data = document.cookie;
+	let splits = data.split(",");
+	for(var i = 0; i < splits.length; i++) 
+	{
+		let thisOne = splits[i].trim();
+		let tokens = thisOne.split("=");
+		if( tokens[0] == "firstName" )
+		{
+			firstName = tokens[1];
+		}
+		else if( tokens[0] == "lastName" )
+		{
+			lastName = tokens[1];
+		}
+		else if( tokens[0] == "userId" )
+		{
+			userId = parseInt( tokens[1].trim() );
+		}
+	}
+	
+	if( userId < 0 )
+	{
+		window.location.href = "index.html";
+	}
+	else
+	{
+		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+	}
+}
+
+function doLogout()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+    // idk if the following line needs to be modified
+	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	window.location.href = "index.html";
+}   
