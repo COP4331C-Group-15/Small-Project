@@ -12,6 +12,35 @@
 }
 
 /* left side of page */
+.contacts-page-user-message-container
+{   
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    max-width: 500px;
+}
+
+.welcome-text
+{
+    color: rgb(42, 27, 54);
+    font-size: 20px;
+    margin: 0;
+}
+
+.contacts-page-message-name-container
+{
+    display: flex;
+}
+
+.contacts-page-message-name-container p
+{
+    background: linear-gradient(45deg, red, blue, purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 30px;
+    margin: 0;
+}
 
 .contact-page-inputs-container
 {
