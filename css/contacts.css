@@ -176,7 +176,6 @@
 {
     border: solid;
     border-color: rgb(235, 235, 235);
-    border-radius: 20px;
     margin-top: 40px;
     margin-bottom: 140px;
     width: calc(80%);
@@ -188,7 +187,6 @@
     align-items: center;
     justify-content: space-between;
     background-color: aliceblue;
-    border-radius: 14px 14px 0 0;
     height: 100px;
 }
 
@@ -200,7 +198,10 @@
 
 .description-text
 {
-    color: rgb(121, 119, 119);
+    background: linear-gradient(45deg, red, blue, purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     font-size: 24px;
     font-weight: 600;
 }
@@ -225,5 +226,4 @@
     width: calc(100%);
     height: 100px;
     background-color: aliceblue;
-    border-radius: 0 0 14px 14px;
 }

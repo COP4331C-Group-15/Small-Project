@@ -54,7 +54,7 @@ function doLogin()
 	}
 	catch(err)
 	{
-		document.getElementById("loginResult").innerHTML = err.message;
+		document.getElementById("login-result").innerHTML = err.message;
 	}
 
 }
@@ -96,7 +96,8 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		// changed later
+		// document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
 
@@ -109,3 +110,65 @@ function doLogout()
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }   
+
+function doRegister()
+{   
+    let login = document.getElementById("signup-username").value;
+    let password = document.getElementById("signup-password").value;
+  	firstName = document.getElementById("firstname").value;
+  	lastName = document.getElementById("lastname").value;
+
+    let tmp = {login:login,password:password,firstName,lastName};
+	//  var tmp = {login:login,password:hash};
+    let jsonPayload = JSON.stringify( tmp );
+    
+    let url = urlBase + '/Register.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    try
+    {
+        xhr.onreadystatechange = function() 
+        {
+            if (this.readyState == 4 && this.status == 200)
+            {
+                let jsonObject = JSON.parse( xhr.responseText );
+                userId = jsonObject.id;
+        
+                if( userId < 1 )
+                {       
+                    // document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+          			console.log("Registration failed");
+                    return;
+                }
+        
+                firstName = jsonObject.firstName;
+                lastName = jsonObject.lastName;
+
+                saveCookie();
+    
+                window.location.href = "contacts.html";
+            }
+        };
+        xhr.send(jsonPayload);
+    }
+    catch(err)
+    {
+    	console.log("Registration failed");
+        // document.getElementById("login-result").innerHTML = err.message;
+    }
+}
+
+let loginButton = document.getElementById("login-button");
+let SignupButton = document.getElementById("signup-button");
+
+if (loginButton)
+{
+	loginButton.addEventListener('click', doLogin);
+}
+
+if (SignupButton)
+{
+	SignupButton.addEventListener('click', doRegister);
+}
