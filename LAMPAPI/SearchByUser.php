@@ -18,7 +18,7 @@
 
 		$queriedResult = $stmt->get_result();
 
-		while($row = $queriedResult->fetch_assoc())
+		while($row = $result->fetch_assoc())
 		{
 			$queryCount++;
 		}
