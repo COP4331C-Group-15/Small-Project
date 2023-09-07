@@ -22,7 +22,6 @@ function doLogin()
 	let jsonPayload = JSON.stringify( tmp );
 	
 	let url = urlBase + '/Login.' + extension;
-	console.log(url); // FOR DEBUGGING
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -39,18 +38,13 @@ function doLogin()
 				if( userId < 1 )
 				{		
 					document.getElementById("login-result").innerHTML = "User/Password combination incorrect";
-					console.log("CHECK 1"); // FOR DEBUGGING
 					return;
 				}
 		
 				firstName = jsonObject.firstName;
 				lastName = jsonObject.lastName;
 
-				console.log("CHECK 2"); // FOR DEBUGGING
-
 				saveCookie();
-
-				console.log("CHECK 3"); // FOR DEBUGGING
 	
 				window.location.href = "contacts.html";
 			}
@@ -60,7 +54,6 @@ function doLogin()
 	catch(err)
 	{
 		document.getElementById("login-result").innerHTML = err.message;
-		console.log("CHECK 4"); // FOR DEBUGGING
 	}
 
 }
@@ -165,16 +158,3 @@ function doRegister()
         // document.getElementById("login-result").innerHTML = err.message;
     }
 }
-
-// let loginButton = document.getElementById("login-button");
-// let SignupButton = document.getElementById("signup-button");
-
-// if (loginButton)
-// {
-// 	loginButton.addEventListener('click', doLogin);
-// }
-
-// if (SignupButton)
-// {
-// 	SignupButton.addEventListener('click', doRegister);
-// }
