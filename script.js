@@ -166,15 +166,15 @@ function doRegister()
     }
 }
 
-let loginButton = document.getElementById("login-button");
-let SignupButton = document.getElementById("signup-button");
+// let loginButton = document.getElementById("login-button");
+// let SignupButton = document.getElementById("signup-button");
 
-if (loginButton)
-{
-	loginButton.addEventListener('click', doLogin);
-}
+// if (loginButton)
+// {
+// 	loginButton.addEventListener('click', doLogin);
+// }
 
-if (SignupButton)
-{
-	SignupButton.addEventListener('click', doRegister);
-}
+// if (SignupButton)
+// {
+// 	SignupButton.addEventListener('click', doRegister);
+// }
