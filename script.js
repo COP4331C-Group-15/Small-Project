@@ -55,9 +55,6 @@ function doLogin()
 				saveCookie();
 	
 				window.location.href = "contacts.html";
-
-				// document.getElementById("firstname-contact-page-message").innerHTML = "firstName";
-				// document.getElementById("lastname-contact-page-message").innerHTML = "lastName";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -73,7 +70,6 @@ function doLogout()
 	userId = 0;
 	firstName = "";
 	lastName = "";
-    // idk if the following line needs to be modified
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }   
@@ -162,10 +158,9 @@ function readCookie()
 	{
 		window.location.href = "index.html";
 	}
+
 	else
 	{
-		// changed later
-		//document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 		document.getElementById("firstname-contact-page-message").innerHTML = firstName;
 		document.getElementById("lastname-contact-page-message").innerHTML = lastName;
 	}
