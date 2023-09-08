@@ -38,7 +38,15 @@ function doLogin()
 				if( userId < 1 )
 				{		
 					document.getElementById("login-result").innerHTML = "User/Password combination incorrect";
+					document.getElementById("login-result-container").classList.add("login-result-container-present");
+					document.getElementById("login-result").classList.add("login-result-container-present-text");
 					return;
+				}
+
+				else
+				{
+					document.getElementById("login-result-container").classList.remove("login-result-container-present");
+					document.getElementById("login-result").classList.remove("login-result-container-present-text");
 				}
 		
 				firstName = jsonObject.firstName;
@@ -48,8 +56,8 @@ function doLogin()
 	
 				window.location.href = "contacts.html";
 
-				// document.getElementById("firstname-contact-page-message").innerHTML = firstName;
-				// document.getElementById("lastname-contact-page-message").innerHTML = lastName;
+				document.getElementById("firstname-contact-page-message").innerHTML = "firstName";
+				document.getElementById("lastname-contact-page-message").innerHTML = "lastName";
 			}
 		};
 		xhr.send(jsonPayload);
