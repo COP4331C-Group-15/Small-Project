@@ -77,7 +77,29 @@ h4
 
 .cc15-logo
 {
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 120px;
+    left: 50px;
+    height: 200px;
+    width: 200px;
+    border: solid;
+    border-radius: 100px;
+    border-color: rgb(195, 171, 202);
+    border-width: 4px;
+    box-shadow: 4px 4px 10px rgba(201, 197, 197, 0.6);
+    background: linear-gradient(45deg, rgb(255, 111, 111), rgb(173, 18, 173), blue);
+    background-size: 150% 150%;
+    animation: color 6s ease-in-out infinite;
+}
+
+.cc15-logo p
+{
+    color: aliceblue;
+    font-size: 60px;
+    font-family: 'Comic Neue';
 }
 
 .footer
