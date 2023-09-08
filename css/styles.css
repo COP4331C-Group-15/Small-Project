@@ -83,13 +83,13 @@ h4
     position: fixed;
     top: 120px;
     left: 50px;
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
     border: solid;
     border-radius: 100px;
-    border-color: rgb(195, 171, 202);
+    border-color: rgba(229, 204, 236, 0.6);
     border-width: 4px;
-    box-shadow: 4px 4px 10px rgba(201, 197, 197, 0.6);
+    box-shadow: 4px 4px 10px rgba(201, 197, 197, 0.24);
     background: linear-gradient(45deg, rgb(255, 111, 111), rgb(173, 18, 173), blue);
     background-size: 150% 150%;
     animation: color 6s ease-in-out infinite;
@@ -97,9 +97,13 @@ h4
 
 .cc15-logo p
 {
-    color: aliceblue;
-    font-size: 60px;
-    font-family: 'Comic Neue';
+    /* color: aliceblue; */
+    background: linear-gradient(45deg, rgb(238, 158, 158), rgb(197, 99, 197), rgb(120, 120, 236));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 80px;
+    font-family: 'Dosis', sans-serif;
 }
 
 .footer
