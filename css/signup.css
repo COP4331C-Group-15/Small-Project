@@ -76,3 +76,20 @@
     color: aliceblue;
     text-decoration: none;
 }
+
+.signup-result-container-present
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 255, 13, 0.4);
+    height: 80px;
+    width: 380px;
+    margin-top: 20px;
+}
+
+.signup-result-container-present-text
+{
+    color:aliceblue;
+    font-size: 20px;
+}

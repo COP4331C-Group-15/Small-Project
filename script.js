@@ -158,7 +158,9 @@ function doRegister()
 
                 saveCookie();
     
-                window.location.href = "contacts.html";
+                document.getElementById("signup-result").innerHTML = "Successfully Added User!";
+				document.getElementById("signup-result-container").classList.add("signup-result-container-present");
+				document.getElementById("signup-result").classList.add("signup-result-container-present-text");
             }
         };
         xhr.send(jsonPayload);
