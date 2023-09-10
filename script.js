@@ -4,6 +4,7 @@ const extension = 'php';
 let userId = 0;
 let firstName = "";
 let lastName = "";
+const ids = [];
 
 function doLogin()
 {
@@ -164,4 +165,80 @@ function readCookie()
 		document.getElementById("firstname-contact-page-message").innerHTML = firstName;
 		document.getElementById("lastname-contact-page-message").innerHTML = lastName;
 	}
+}
+
+function addContact()
+{
+	let firstName = document.getElementById("create-contact-firstname").value;
+	let lastName = document.getElementById("create-contact-lastname").value;
+	let email = document.getElementById("create-contact-email").value;
+	let phone = document.getElementById("create-contact-phone").value;
+
+	if (!validAddContact(firstName, lastName, email, phone))
+	{
+		// invalid contact info
+		console.log("CONTACT INFO NOT VALID!"); // debugging
+		return;
+	}
+
+	let tmp = {
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phone,
+        emailAddress: email,
+        userId: userId
+    };
+
+	let jsonPayload = JSON.stringify(tmp);
+
+    let url = urlBase + '/AddContact.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    try 
+	{
+        xhr.onreadystatechange = function () 
+		{
+            if (this.readyState == 4 && this.status == 200) 
+			{
+                console.log("Contact has been added");
+                // Clear input fields in form 
+                // document.getElementById("addMe").reset();
+                // reload contacts table and switch view to show
+                // loadContacts();
+                // showTable();
+            }
+        };
+        xhr.send(jsonPayload);
+    } 
+	catch (err) 
+	{
+        console.log(err.message);
+    }
+}
+
+function validAddContact(firstName, lastName, email, phone)
+{
+	let contactError = false;
+
+	if (firstName == "" || lastName == "" || email == "" || phone == "")
+	{
+		contactError = true;
+	}
+
+	let validEmailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+	if (validEmailRegex.test(email) == false)
+	{contactError = true;
+	}
+
+	let validPhoneRegex = /^[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/;
+
+	if (validPhoneRegex.test(phone) == false)
+	{
+		contactError = true;
+	}
+
+	return !contactError;
 }
