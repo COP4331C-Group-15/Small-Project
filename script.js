@@ -173,7 +173,7 @@ function loadContacts(searchCriteria)
 {
 	let tmp = 
 	{
-        search: "",
+        search: searchCriteria,
         userId: userId
     };
 
@@ -230,7 +230,6 @@ function searchContacts()
 	searchCriteria = "";
 }
 
-// NOT FUNCTIONAL YET
 function addContact()
 {
 	let firstName = document.getElementById("create-contact-firstname").value;
@@ -245,11 +244,11 @@ function addContact()
 	}
 
 	let tmp = {
-        firstName: firstName, // might have to change field name
-        lastName: lastName, // might have to change field name
-        phoneNumber: phone, // might have to change field name
-        emailAddress: email, // might have to change field name
-        userId: userId // might have to change field name
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phone,
+        emailAddress: email,
+        userId: userId 
     };
 
 	let jsonPayload = JSON.stringify(tmp);
@@ -321,8 +320,8 @@ function validAddContact(firstName, lastName, email, phone)
 // NOT FUNCTIONAL YET
 function deleteRow(rowNumber) 
 {
-    var namef_val = document.getElementById("first_Name" + rowNumber).innerText;
-    var namel_val = document.getElementById("last_Name" + rowNumber).innerText;
+    var namef_val = document.getElementById("firstNameRow" + rowNumber).innerText;
+    var namel_val = document.getElementById("lastNameRow" + rowNumber).innerText;
     nameOne = namef_val.substring(0, namef_val.length);
     nameTwo = namel_val.substring(0, namel_val.length);
 
