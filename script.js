@@ -270,7 +270,9 @@ function addContact()
 				let CCLN = document.getElementById("create-contact-lastname").value;
 				let CCEA = document.getElementById("create-contact-email").value;
 				let CCPN = document.getElementById("create-contact-phone").value;
+
 				// contact added successfully message
+				showElementForFewSeconds();
 
 				CCFN = CCLN = CCEA = CCPN = "";
             }
@@ -282,6 +284,14 @@ function addContact()
         console.log(err.message);
     }
 }
+
+function showElementForFewSeconds() 
+{
+    myElement.style.display = 'block';
+    setTimeout(function () {
+      myElement.style.display = 'none'; // Hide the element after 5 few seconds 
+    }, 5000); 
+  }
 
 function validAddContact(firstName, lastName, email, phone)
 {

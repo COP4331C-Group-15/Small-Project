@@ -119,6 +119,25 @@
     cursor: pointer;
 }
 
+#added-contact-message
+{
+    display: none;
+    text-align: center;
+    background-color: rgba(0, 255, 13, 0.4);
+    border: solid;
+    border-width: 6px;
+    border-color: rgba(0, 255, 13, 0.8);
+    height: 80px;
+    width: 380px;
+    margin-top: 20px;
+}
+
+#added-contact-message p
+{
+    color:aliceblue;
+    font-size: 20px;
+}
+
 #logout-button
 {
     position: absolute;
