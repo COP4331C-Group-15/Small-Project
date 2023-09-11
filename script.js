@@ -167,6 +167,61 @@ function readCookie()
 	}
 }
 
+// NOT FUNCTIONAL YET
+function loadContacts()
+{
+	let tmp = 
+	{
+        search: "",
+        userId: userId
+    };
+
+    let jsonPayload = JSON.stringify(tmp);
+
+    let url = urlBase + '/SearchContact.' + extension;
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try 
+	{
+        xhr.onreadystatechange = function () 
+		{
+            if (this.readyState == 4 && this.status == 200) 
+			{
+                let jsonObject = JSON.parse(xhr.responseText);
+                if (jsonObject.error) 
+				{
+                    console.log(jsonObject.error);
+                    return;
+                }
+                let text = "<table border='1'>"
+                for (let i = 0; i < jsonObject.results.length; i++) 
+				{
+                    ids[i] = jsonObject.results[i].ID
+                    text += "<tr id='row" + i + "'>"
+                    text += "<td id='firstNameRow" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>"; // might have to change field name
+                    text += "<td id='lastNameRow" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>"; // might have to change field name
+                    text += "<td id='emailRow" + i + "'><span>" + jsonObject.results[i].EmailAddress + "</span></td>"; // might have to change field name
+                    text += "<td id='phoneRow" + i + "'><span>" + jsonObject.results[i].PhoneNumber + "</span></td>"; // might have to change field name
+                    text += "<td>" +
+                        "<button id='editButton" + i + "' onclick='editRow(" + i + ")'>" + "</button>" +
+                        "<button id='deleteButton" + i + "' onclick='deleteRow(" + i + ")' '>" + "</button>" + "</td>";
+                    text += "<tr/>"
+                }
+                text += "</table>"
+                document.getElementById("contacts-container").innerHTML = text;
+            }
+        };
+        xhr.send(jsonPayload);
+    } 
+	catch (err) 
+	{
+        console.log(err.message);
+    }
+}
+
+// NOT FUNCTIONAL YET
 function addContact()
 {
 	let firstName = document.getElementById("create-contact-firstname").value;
@@ -241,4 +296,50 @@ function validAddContact(firstName, lastName, email, phone)
 	}
 
 	return !contactError;
+}
+
+// NOT FUNCTIONAL YET
+function deleteRow(rowNumber) 
+{
+    var namef_val = document.getElementById("first_Name" + rowNumber).innerText;
+    var namel_val = document.getElementById("last_Name" + rowNumber).innerText;
+    nameOne = namef_val.substring(0, namef_val.length);
+    nameTwo = namel_val.substring(0, namel_val.length);
+
+    let check = confirm('Are you sure you want to delete: ' + nameOne + ' ' + nameTwo + '?');
+
+    if (check === true) 
+	{
+        document.getElementById("row" + rowNumber + "").outerHTML = "";
+        let tmp = 
+		{
+            firstName: nameOne, // might have to change field name
+            lastName: nameTwo, // might have to change field name
+            userId: userId // might have to change field name
+        };
+
+        let jsonPayload = JSON.stringify(tmp);
+
+        let url = urlBase + '/DeleteContact.' + extension;
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+        try 
+		{
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) 
+				{
+
+                    console.log("Contact has been deleted");
+                    loadContacts();
+                }
+            };
+            xhr.send(jsonPayload);
+        } 
+		catch (err) 
+		{
+            console.log(err.message);
+        }
+    };
 }
