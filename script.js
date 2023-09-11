@@ -168,7 +168,8 @@ function readCookie()
 }
 
 // NOT FUNCTIONAL YET
-function loadContacts()
+// MAKE REQUEST ONLY RETURN CONTACTS WHOSE FIELDS CONTAIN THE SEARCH CRITERIA
+function loadContacts(searchCriteria)
 {
 	let tmp = 
 	{
@@ -222,6 +223,14 @@ function loadContacts()
 }
 
 // NOT FUNCTIONAL YET
+function searchContacts() 
+{
+    let searchCriteria = document.getElementById("searchbar").value;
+	loadContacts(searchCriteria);
+	searchCriteria = "";
+}
+
+// NOT FUNCTIONAL YET
 function addContact()
 {
 	let firstName = document.getElementById("create-contact-firstname").value;
@@ -231,17 +240,16 @@ function addContact()
 
 	if (!validAddContact(firstName, lastName, email, phone))
 	{
-		// invalid contact info
-		console.log("CONTACT INFO NOT VALID!"); // debugging
+		console.log("CONTACT INFO NOT VALID!");
 		return;
 	}
 
 	let tmp = {
-        firstName: firstName,
-        lastName: lastName,
-        phoneNumber: phone,
-        emailAddress: email,
-        userId: userId
+        firstName: firstName, // might have to change field name
+        lastName: lastName, // might have to change field name
+        phoneNumber: phone, // might have to change field name
+        emailAddress: email, // might have to change field name
+        userId: userId // might have to change field name
     };
 
 	let jsonPayload = JSON.stringify(tmp);
@@ -258,11 +266,13 @@ function addContact()
             if (this.readyState == 4 && this.status == 200) 
 			{
                 console.log("Contact has been added");
-                // Clear input fields in form 
-                // document.getElementById("addMe").reset();
-                // reload contacts table and switch view to show
-                // loadContacts();
-                // showTable();
+                let CCFN = document.getElementById("create-contact-firstname").value;
+				let CCLN = document.getElementById("create-contact-lastname").value;
+				let CCEA = document.getElementById("create-contact-email").value;
+				let CCPN = document.getElementById("create-contact-phone").value;
+				// contact added successfully message
+
+				CCFN = CCLN = CCEA = CCPN = "";
             }
         };
         xhr.send(jsonPayload);
