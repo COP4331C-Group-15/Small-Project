@@ -93,6 +93,7 @@ h4
     background: linear-gradient(45deg, rgb(255, 111, 111), rgb(173, 18, 173), blue);
     background-size: 150% 150%;
     animation: color 6s ease-in-out infinite;
+    cursor: pointer;
 }
 
 .cc15-logo p
