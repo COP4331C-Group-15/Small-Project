@@ -199,17 +199,18 @@ function loadContacts(searchCriteria)
                     return;
                 }
                 let text = "<table border='1'>"
+				
                 for (let i = 0; i < jsonObject.results.length; i++) 
 				{
                     ids[i] = jsonObject.results[i].ID
-                    text += "<tr id='row" + i + "'>"
-                    text += "<td id='firstNameRow" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>"; // might have to change field name
-                    text += "<td id='lastNameRow" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>"; // might have to change field name
-                    text += "<td id='emailRow" + i + "'><span>" + jsonObject.results[i].Email + "</span></td>"; // might have to change field name
-                    text += "<td id='phoneRow" + i + "'><span>" + jsonObject.results[i].Phone + "</span></td>"; // might have to change field name
-                    text += "<td>" +
-                        "<button id='editButton" + i + "' onclick='editRow(" + i + ")'>" + "</button>" +
-                        "<button id='deleteButton" + i + "' onclick='deleteRow(" + i + ")' '>" + "</button>" + "</td>";
+                    text += "<tr id='row" + i + "' class='contact-row'>"
+                    text += "<td id='firstNameRow" + i + "' class='firstname-cell'><span>" + jsonObject.results[i].FirstName + "</span></td>";
+                    text += "<td id='lastNameRow" + i + "' class='lastname-cell'><span>" + jsonObject.results[i].LastName + "</span></td>";
+                    text += "<td id='emailRow" + i + "' class='email-cell'><span>" + jsonObject.results[i].Email + "</span></td>";
+                    text += "<td id='phoneRow" + i + "'class='phone-cell'><span>" + jsonObject.results[i].Phone + "</span></td>";
+                    text += "<td class='button-cell'>" +
+                        "<button id='editButton" + i + "' class='edit-button' onclick='editRow(" + i + ")'>" + "</button>" +
+                        "<button id='deleteButton" + i + "' class='delete-button' onclick='deleteRow(" + i + ")' '>" + "</button>" + "</td>";
                     text += "<tr/>"
                 }
                 text += "</table>"
