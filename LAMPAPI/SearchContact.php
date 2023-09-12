@@ -14,9 +14,9 @@
 	else
 	{
 		// this is the search contact part
-		$stmt = $conn->prepare("select * from Contacts WHERE (FirstName like ? OR LastName like ?) AND UserID=?");
+		$stmt = $conn->prepare("SELECT * from Contacts WHERE (FirstName like ? OR LastName like ?) AND UserID=?");
 		$userName = "%" . $inData["search"] . "%";
-		$stmt->bind_param("ss", $userName, $inData["userId"]);
+		$stmt->bind_param("sss", $userName, $userName, $inData["userId"]);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -29,7 +29,7 @@
 			}
 			$searchCount++;
 			$contactSearchResults .= '{"FirstName" : "' . $row["FirstName"]. '", "LastName" : "' . $row["LastName"]. 
-				'", "PhoneNumber" : "' . $row["PhoneNumber"].  '", "EmailAddress" : "' . $row["EmailAddress"]. 
+				'", "Phone" : "' . $row["Phone"].  '", "Email" : "' . $row["Email"]. 
 				'", "UserID" : "' . $row["UserID"]. '", "ID" : "' . $row["ID"]. '"}';
 		}
 		

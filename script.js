@@ -184,6 +184,8 @@ function loadContacts(searchCriteria)
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
+	document.getElementById("contacts-container").innerHTML = "";
+
     try 
 	{
         xhr.onreadystatechange = function () 
@@ -203,8 +205,8 @@ function loadContacts(searchCriteria)
                     text += "<tr id='row" + i + "'>"
                     text += "<td id='firstNameRow" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>"; // might have to change field name
                     text += "<td id='lastNameRow" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>"; // might have to change field name
-                    text += "<td id='emailRow" + i + "'><span>" + jsonObject.results[i].EmailAddress + "</span></td>"; // might have to change field name
-                    text += "<td id='phoneRow" + i + "'><span>" + jsonObject.results[i].PhoneNumber + "</span></td>"; // might have to change field name
+                    text += "<td id='emailRow" + i + "'><span>" + jsonObject.results[i].Email + "</span></td>"; // might have to change field name
+                    text += "<td id='phoneRow" + i + "'><span>" + jsonObject.results[i].Phone + "</span></td>"; // might have to change field name
                     text += "<td>" +
                         "<button id='editButton" + i + "' onclick='editRow(" + i + ")'>" + "</button>" +
                         "<button id='deleteButton" + i + "' onclick='deleteRow(" + i + ")' '>" + "</button>" + "</td>";
@@ -227,7 +229,7 @@ function searchContacts()
 {
     let searchCriteria = document.getElementById("searchbar").value;
 	loadContacts(searchCriteria);
-	searchCriteria = "";
+	// searchCriteria = "";
 }
 
 function addContact()
@@ -286,10 +288,12 @@ function addContact()
 
 function showElementForFewSeconds() 
 {
+	let myElement = document.getElementById("added-contact-message");
+	
     myElement.style.display = 'block';
     setTimeout(function () {
       myElement.style.display = 'none'; // Hide the element after 5 few seconds 
-    }, 5000); 
+    }, 3000); 
   }
 
 function validAddContact(firstName, lastName, email, phone)
