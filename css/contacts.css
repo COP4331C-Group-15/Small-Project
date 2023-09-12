@@ -307,6 +307,8 @@ table span
     width: 80px;
     border-radius: 40px;
     margin-left: 7px;
+    border: none;
+    background-color: blue;
 }
 
 .delete-button
@@ -316,6 +318,13 @@ table span
     border-radius: 40px;
     margin-left: 6px;
     margin-right: 7px;
+    border: none;
+    background-color: red;
+}
+
+.edit-button img, .delete-button img
+{
+    height: 30px;
 }
 
 .filler-contact
