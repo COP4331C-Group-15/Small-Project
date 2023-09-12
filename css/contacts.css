@@ -222,20 +222,11 @@
 
 .contacts-and-description-container
 {
-    border: solid;
+    border: none;
     border-color: rgb(235, 235, 235);
     margin-top: 40px;
     margin-bottom: 140px;
     width: calc(80%);
-}
-
-.description-container
-{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: aliceblue;
-    height: 100px;
 }
 
 .space-update-delete
@@ -244,7 +235,24 @@
     height: 100px;
 }
 
-.description-text
+table
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: solid;
+    border-color: aliceblue;
+    background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.377), rgba(0, 0, 255, 0.356), rgba(128, 0, 128, 0.397));
+    box-shadow: 4px 8px 20px rgba(192, 192, 192, 0.397);
+}
+
+#table-header-row
+{
+    height: 100px;
+    border: none;
+    background-color: aliceblue;
+}
+
+#table-header-row p
 {
     background: linear-gradient(45deg, red, blue, purple);
     -webkit-background-clip: text;
@@ -252,11 +260,7 @@
     color: transparent;
     font-size: 24px;
     font-weight: 600;
-}
-
-table
-{
-    width: 100%;
+    padding-left: 10px;
 }
 
 .contact-row
@@ -265,35 +269,23 @@ table
     border-color: aliceblue;
 }
 
+.contact-row td
+{
+    background-color: rgba(116, 116, 116, 0.24);
+}
+
 table td
 {
     border: 1px solid aliceblue;
+    padding: 0;
+    margin: 0;
 }
 
 table span
 {
     color: aliceblue;
     font-size: 20px;
-}
-
-.firstname-cell
-{
-    width: 22%;
-}
-
-.lastname-cell
-{
-    width: 22%;
-}
-
-.email-cell
-{
-    
-}
-
-.phone-cell
-{
-    
+    padding-left: 10px;
 }
 
 .button-cell
@@ -308,7 +300,8 @@ table span
     border-radius: 40px;
     margin-left: 7px;
     border: none;
-    background-color: blue;
+    background-color: rgb(240, 174, 51);
+    cursor: pointer;
 }
 
 .delete-button
@@ -319,27 +312,11 @@ table span
     margin-left: 6px;
     margin-right: 7px;
     border: none;
-    background-color: red;
+    background-color: rgb(143, 143, 143);
+    cursor: pointer;
 }
 
 .edit-button img, .delete-button img
 {
     height: 30px;
-}
-
-.filler-contact
-{
-    width: calc(100%);
-    height: 100px;
-    background-color: rgba(255, 255, 255, 0.171);
-    border: solid;
-    border-width: 1px;
-    border-color: aliceblue;
-}
-
-.contacts-and-description-container-footer
-{
-    width: calc(100%);
-    height: 100px;
-    background-color: aliceblue;
 }

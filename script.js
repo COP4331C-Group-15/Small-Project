@@ -198,7 +198,8 @@ function loadContacts(searchCriteria)
                     console.log(jsonObject.error);
                     return;
                 }
-                let text = "<table border='1'>"
+                let text = "<table border='8'>";
+				text += "<tr id='table-header-row'><td><p>First Name</p></td><td><p>Last Name</p></td><td><p>Email</p></td><td><p>Phone</p></td><td><p></p></td></tr>";
 				
                 for (let i = 0; i < jsonObject.results.length; i++) 
 				{
