@@ -210,6 +210,7 @@ function loadContacts(searchCriteria)
                     text += "<td id='phoneRow" + i + "'class='phone-cell'><span>" + jsonObject.results[i].Phone + "</span></td>";
                     text += "<td class='button-cell'>" +
                         "<button id='editButton" + i + "' class='edit-button' onclick='editRow(" + i + ")'>" + "<img src='images/editing.png'></button>" +
+						"<button id='saveButton" + i + "' class='save-button' onclick='saveRow(" + i + ")' style='display: none'>" + "<img src='images/check.png'></button>" +
                         "<button id='deleteButton" + i + "' class='delete-button' onclick='deleteRow(" + i + ")' '>" + " <img src='images/trashcan.png'></button>" + "</td>";
                     text += "<tr/>"
                 }
@@ -365,6 +366,77 @@ function deleteRow(rowNumber)
             console.log(err.message);
         }
     };
+}
+
+function editRow(id) 
+{
+    document.getElementById("editButton" + id).style.display = "none";
+    document.getElementById("saveButton" + id).style.display = "inline-block";
+
+    var firstNameI = document.getElementById("firstNameRow" + id);
+    var lastNameI = document.getElementById("lastNameRow" + id);
+    var email = document.getElementById("emailRow" + id);
+    var phone = document.getElementById("phoneRow" + id);
+
+    var namef_data = firstNameI.innerText;
+    var namel_data = lastNameI.innerText;
+    var email_data = email.innerText;
+    var phone_data = phone.innerText;
+
+    firstNameI.innerHTML = "<input type='text' class='editing-input-box' id='namef_text" + id + "' value='" + namef_data + "'>";
+    lastNameI.innerHTML = "<input type='text' class='editing-input-box' id='namel_text" + id + "' value='" + namel_data + "'>";
+    email.innerHTML = "<input type='text' class='editing-input-box' id='email_text" + id + "' value='" + email_data + "'>";
+    phone.innerHTML = "<input type='text' class='editing-input-box' id='phone_text" + id + "' value='" + phone_data + "'>"
+}
+
+// NOT FUNCTIONAL YET
+function saveRow(no) 
+{
+    var namef_val = document.getElementById("namef_text" + no).value;
+    var namel_val = document.getElementById("namel_text" + no).value;
+    var email_val = document.getElementById("email_text" + no).value;
+    var phone_val = document.getElementById("phone_text" + no).value;
+    var id_val = ids[no]
+
+    document.getElementById("firstNameRow" + no).innerHTML = namef_val;
+    document.getElementById("lastNameRow" + no).innerHTML = namel_val;
+    document.getElementById("emailRow" + no).innerHTML = email_val;
+    document.getElementById("phoneRow" + no).innerHTML = phone_val;
+
+    document.getElementById("editButton" + no).style.display = "inline-block";
+    document.getElementById("saveButton" + no).style.display = "none";
+
+    let tmp = {
+        phoneNumber: phone_val,
+        emailAddress: email_val,
+        newFirstName: namef_val,
+        newLastName: namel_val,
+        id: id_val
+    };
+
+    let jsonPayload = JSON.stringify(tmp);
+
+    let url = urlBase + '/Update.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    try 
+	{
+        xhr.onreadystatechange = function () 
+		{
+            if (this.readyState == 4 && this.status == 200) 
+			{
+                console.log("Contact has been updated");
+                loadContacts();
+            }
+        };
+        xhr.send(jsonPayload);
+    } 
+	catch (err) 
+	{
+        console.log(err.message);
+    }
 }
 
 function toggleBlankTableMessage(state)
