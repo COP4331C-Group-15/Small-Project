@@ -167,8 +167,6 @@ function readCookie()
 	}
 }
 
-// NOT FUNCTIONAL YET
-// MAKE REQUEST ONLY RETURN CONTACTS WHOSE FIELDS CONTAIN THE SEARCH CRITERIA
 function loadContacts(searchCriteria)
 {
 	let tmp = 
@@ -196,6 +194,7 @@ function loadContacts(searchCriteria)
                 if (jsonObject.error) 
 				{
                     console.log(jsonObject.error);
+					toggleBlankTableMessage("blank");
                     return;
                 }
                 let text = "<table border='8'>";
@@ -224,14 +223,14 @@ function loadContacts(searchCriteria)
 	{
         console.log(err.message);
     }
+
+	toggleBlankTableMessage("notBlank");
 }
 
-// NOT FUNCTIONAL YET
 function searchContacts() 
 {
     let searchCriteria = document.getElementById("searchbar").value;
 	loadContacts(searchCriteria);
-	// searchCriteria = "";
 }
 
 function addContact()
@@ -294,7 +293,7 @@ function showElementForFewSeconds()
 	
     myElement.style.display = 'block';
     setTimeout(function () {
-      myElement.style.display = 'none'; // Hide the element after 5 few seconds 
+      myElement.style.display = 'none'; // Hide the element after 3 few seconds 
     }, 3000); 
   }
 
@@ -323,7 +322,6 @@ function validAddContact(firstName, lastName, email, phone)
 	return !contactError;
 }
 
-// NOT FUNCTIONAL YET
 function deleteRow(rowNumber) 
 {
     var namef_val = document.getElementById("firstNameRow" + rowNumber).innerText;
@@ -338,9 +336,9 @@ function deleteRow(rowNumber)
         document.getElementById("row" + rowNumber + "").outerHTML = "";
         let tmp = 
 		{
-            firstName: nameOne, // might have to change field name
-            lastName: nameTwo, // might have to change field name
-            userId: userId // might have to change field name
+            firstName: nameOne,
+            lastName: nameTwo,
+            userId: userId
         };
 
         let jsonPayload = JSON.stringify(tmp);
@@ -367,4 +365,19 @@ function deleteRow(rowNumber)
             console.log(err.message);
         }
     };
+}
+
+function toggleBlankTableMessage(state)
+{
+	let blankTableMessage = document.getElementById("blank-table-message");
+
+	if (state == "blank")
+	{
+		blankTableMessage.classList.remove("make-hidden-style");
+	}
+
+	else
+	{
+		blankTableMessage.classList.add("make-hidden-style");
+	}
 }
