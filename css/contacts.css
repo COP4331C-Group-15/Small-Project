@@ -282,8 +282,10 @@ table td
     margin: 0;
 }
 
-table span
+.table-span
 {
+    display: block;
+    width: 240px;
     color: aliceblue;
     font-size: 20px;
     padding-left: 10px;
@@ -331,6 +333,18 @@ table span
 .edit-button img, .save-button img, .delete-button img
 {
     height: 30px;
+}
+
+.editing-input-box
+{
+    background-color: rgba(255, 255, 255, 0);
+    border: solid;
+    border-width: 2px;
+    padding: 4px;
+    border-color: rgb(240, 174, 51);
+    color: rgba(240, 248, 255, 0.699);
+    font-size: 18px;
+    margin-left: 10px;
 }
 
 #blank-table-message

@@ -204,10 +204,10 @@ function loadContacts(searchCriteria)
 				{
                     ids[i] = jsonObject.results[i].ID
                     text += "<tr id='row" + i + "' class='contact-row'>"
-                    text += "<td id='firstNameRow" + i + "' class='firstname-cell'><span>" + jsonObject.results[i].FirstName + "</span></td>";
-                    text += "<td id='lastNameRow" + i + "' class='lastname-cell'><span>" + jsonObject.results[i].LastName + "</span></td>";
-                    text += "<td id='emailRow" + i + "' class='email-cell'><span>" + jsonObject.results[i].Email + "</span></td>";
-                    text += "<td id='phoneRow" + i + "'class='phone-cell'><span>" + jsonObject.results[i].Phone + "</span></td>";
+                    text += "<td id='firstNameRow" + i + "' class='firstname-cell'><span class='table-span'>" + jsonObject.results[i].FirstName + "</span></td>";
+                    text += "<td id='lastNameRow" + i + "' class='lastname-cell'><span class='table-span'>" + jsonObject.results[i].LastName + "</span></td>";
+                    text += "<td id='emailRow" + i + "' class='email-cell'><span class='table-span'>" + jsonObject.results[i].Email + "</span></td>";
+                    text += "<td id='phoneRow" + i + "'class='phone-cell'><span class='table-span'>" + jsonObject.results[i].Phone + "</span></td>";
                     text += "<td class='button-cell'>" +
                         "<button id='editButton" + i + "' class='edit-button' onclick='editRow(" + i + ")'>" + "<img src='images/editing.png'></button>" +
 						"<button id='saveButton" + i + "' class='save-button' onclick='saveRow(" + i + ")' style='display: none'>" + "<img src='images/check.png'></button>" +
