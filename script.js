@@ -129,31 +129,32 @@ function saveCookie()
 	let minutes = 20;
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	document.cookie = "firstName=" + firstName + "; expires=" + date.toGMTString();
+    document.cookie = "lastName=" + lastName + "; expires=" + date.toGMTString();
+    document.cookie = "userId=" + userId + "; expires=" + date.toGMTString();
 }
 
 function readCookie()
 {
-	userId = -1;
-	let data = document.cookie;
-	let splits = data.split(",");
-	for(var i = 0; i < splits.length; i++) 
-	{
-		let thisOne = splits[i].trim();
-		let tokens = thisOne.split("=");
-		if( tokens[0] == "firstName" )
-		{
-			firstName = tokens[1];
-		}
-		else if( tokens[0] == "lastName" )
-		{
-			lastName = tokens[1];
-		}
-		else if( tokens[0] == "userId" )
-		{
-			userId = parseInt( tokens[1].trim() );
-		}
-	}
+    userId = -1;
+    let firstNameCookie = getCookie("firstName");
+    let lastNameCookie = getCookie("lastName");
+    let userIdCookie = getCookie("userId");
+
+    if (firstNameCookie !== "") 
+    {
+        firstName = firstNameCookie;
+    }
+
+    if (lastNameCookie !== "") 
+    {
+        lastName = lastNameCookie;
+    }
+
+    if (userIdCookie !== "") 
+    {
+        userId = parseInt(userIdCookie);
+    }
 	
 	if( userId < 0 )
 	{
@@ -165,6 +166,20 @@ function readCookie()
 		document.getElementById("firstname-contact-page-message").innerHTML = firstName;
 		document.getElementById("lastname-contact-page-message").innerHTML = lastName;
 	}
+}
+
+function getCookie(cookieName) {
+    const name = cookieName + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(";");
+
+    for (let i = 0; i < cookieArray.length; i++) {
+        let cookie = cookieArray[i].trim();
+        if (cookie.indexOf(name) === 0) {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+    return "";
 }
 
 function loadContacts(searchCriteria)
@@ -389,7 +404,6 @@ function editRow(id)
     phone.innerHTML = "<input type='text' class='editing-input-box' id='phone_text" + id + "' value='" + phone_data + "'>"
 }
 
-// NOT FUNCTIONAL YET
 function saveRow(no) 
 {
     var namef_val = document.getElementById("namef_text" + no).value;
