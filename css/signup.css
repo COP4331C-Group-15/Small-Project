@@ -118,3 +118,28 @@
     color:aliceblue;
     font-size: 20px;
 }
+
+#signup-firstname-accessibility
+{
+    top: calc(50% - 234px);
+}
+
+#signup-lastname-accessibility
+{
+    top: calc(50% - 152px);
+}
+
+#signup-username-accessibility
+{
+    top: calc(50% - 70px);
+}
+
+#signup-password-accessibility
+{
+    top: calc(50% + 12px);
+}
+
+#signup-passwordcheck-accessibility
+{
+    top: calc(50% + 94px);
+}

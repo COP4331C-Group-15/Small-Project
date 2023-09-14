@@ -101,3 +101,13 @@
     font-size: 20px;
     text-align: center;
 }
+
+#login-username-accessibility
+{
+    top: calc(50% - 115px);
+}
+
+#login-password-accessibility
+{
+    top: calc(50% - 30px);
+}

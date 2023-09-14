@@ -68,11 +68,43 @@
                 <div id="login-result-container">
                     <p id="login-result"></p>
                 </div>
+
+                <div id="login-username-accessibility" class="accessibility-text">
+                    <p>Username:</p>
+                </div>
+
+                <div id="login-password-accessibility" class="accessibility-text">
+                    <p>Password:</p>
+                </div>
             </div>
 
             <div class="footer">
                 <p>Website created by the amazing Group 15</p>
             </div>
         </div>
+
+        <script>
+            const inputBoxLoginUser = document.getElementById("login-username");
+            const inputBoxLoginPass = document.getElementById("login-password");
+
+            const inputBoxLoginUserPopup = document.getElementById("login-username-accessibility");
+            const inputBoxLoginPassPopup = document.getElementById("login-password-accessibility");
+
+            inputBoxLoginUser.addEventListener('focus', () => {
+                inputBoxLoginUserPopup.style.display = 'block';
+            });
+
+            inputBoxLoginUser.addEventListener('blur', () => {
+                inputBoxLoginUserPopup.style.display = 'none';
+            });
+
+            inputBoxLoginPass.addEventListener('focus', () => {
+                inputBoxLoginPassPopup.style.display = 'block';
+            });
+
+            inputBoxLoginPass.addEventListener('blur', () => {
+                inputBoxLoginPassPopup.style.display = 'none';
+            });
+        </script>
     </body>
 </html>

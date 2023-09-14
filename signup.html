@@ -91,11 +91,88 @@
                 <div id="signup-result-container">
                     <p id="signup-result"></p>
                 </div>
+
+                <div id="signup-firstname-accessibility" class="accessibility-text">
+                    <p>First Name:</p>
+                </div>
+
+                <div id="signup-lastname-accessibility" class="accessibility-text">
+                    <p>Last Name:</p>
+                </div>
+
+                <div id="signup-username-accessibility" class="accessibility-text">
+                    <p>Username:</p>
+                </div>
+
+                <div id="signup-password-accessibility" class="accessibility-text">
+                    <p>Password:</p>
+                </div>
+
+                <div id="signup-passwordcheck-accessibility" class="accessibility-text">
+                    <p>Password:</p>
+                </div>
             </div>
 
             <div class="footer">
                 <p>Website created by the amazing Group 15</p>
             </div>
         </div>
+
+        <script>
+            const inputBoxSignupFN = document.getElementById("firstname");
+            const inputBoxSignupLN = document.getElementById("lastname");
+            const inputBoxSignupUser = document.getElementById("signup-username");
+            const inputBoxSignupPass = document.getElementById("signup-password");
+            const inputBoxSignupPassCheck = document.getElementById("reenter-password");
+
+            const inputBoxSignupFNPopup = document.getElementById("signup-firstname-accessibility");
+            const inputBoxSignupLNPopup = document.getElementById("signup-lastname-accessibility");
+            const inputBoxSignupUserPopup = document.getElementById("signup-username-accessibility");
+            const inputBoxSignupPassPopup = document.getElementById("signup-password-accessibility");
+            const inputBoxSignupPassCheckPopup = document.getElementById("signup-passwordcheck-accessibility");
+
+            console.log(inputBoxSignupFN);
+            console.log(inputBoxSignupFNPopup);
+
+            inputBoxSignupFN.addEventListener('focus', () => {
+                inputBoxSignupFNPopup.style.display = 'block';
+            });
+
+            inputBoxSignupFN.addEventListener('blur', () => {
+                inputBoxSignupFNPopup.style.display = 'none';
+            });
+
+            inputBoxSignupLN.addEventListener('focus', () => {
+                inputBoxSignupLNPopup.style.display = 'block';
+            });
+
+            inputBoxSignupLN.addEventListener('blur', () => {
+                inputBoxSignupLNPopup.style.display = 'none';
+            });
+
+            inputBoxSignupUser.addEventListener('focus', () => {
+                inputBoxSignupUserPopup.style.display = 'block';
+            });
+
+            inputBoxSignupUser.addEventListener('blur', () => {
+                inputBoxSignupUserPopup.style.display = 'none';
+            });
+
+            inputBoxSignupPass.addEventListener('focus', () => {
+                inputBoxSignupPassPopup.style.display = 'block';
+            });
+
+            inputBoxSignupPass.addEventListener('blur', () => {
+                inputBoxSignupPassPopup.style.display = 'none';
+            });
+
+            inputBoxSignupPassCheck.addEventListener('focus', () => {
+                inputBoxSignupPassCheckPopup.style.display = 'block';
+            });
+
+            inputBoxSignupPassCheck.addEventListener('blur', () => {
+                inputBoxSignupPassCheckPopup.style.display = 'none';
+            });
+        </script>
     </body>
 </html>
