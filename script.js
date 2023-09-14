@@ -235,7 +235,7 @@ function loadContacts(searchCriteria)
                     text += "<td id='phoneRow" + i + "'class='phone-cell'><span class='table-span'>" + jsonObject.results[i].Phone + "</span></td>";
                     text += "<td class='button-cell'>" +
                         "<button id='editButton" + i + "' class='edit-button' onclick='editRow(" + i + ")'>" + "<img src='images/editing.png'></button>" +
-						"<button id='saveButton" + i + "' class='save-button' onclick='saveRow(" + i + ")' style='display: none'>" + "<img src='images/check.png'></button>" +
+						"<button id='saveButton" + i + "' class='save-button' onclick='saveRow(" + i + ")' style='display: none'>" + "<img src='images/editing.png'></button>" +
                         "<button id='deleteButton" + i + "' class='delete-button' onclick='deleteRow(" + i + ")' '>" + " <img src='images/trashcan.png'></button>" + "</td>";
                     text += "<tr/>"
                 }
