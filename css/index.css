@@ -82,17 +82,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 0, 0, 0.4);
+    position: fixed;
+    top: calc(50% - 100px);
+    left: calc(50% + 300px);
+    color: aliceblue;
+    height: 200px;
+    width: 300px;
+    background-color: rgba(255, 0, 0, 0.1);
     border: solid;
-    border-width: 6px;
-    border-color: rgba(255, 0, 0, 0.8);
-    height: 80px;
-    width: 380px;
-    margin-top: 20px;
+    border-color: rgba(255, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 4px 8px 10px rgba(255, 255, 255, 0.2);
 }
 
 .login-result-container-present-text
 {
     color:aliceblue;
     font-size: 20px;
+    text-align: center;
 }

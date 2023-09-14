@@ -79,8 +79,17 @@ function doRegister()
 {   
     let login = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
+    let passwordCheck = document.getElementById("reenter-password").value;
   	firstName = document.getElementById("firstname").value;
   	lastName = document.getElementById("lastname").value;
+
+    if (password != passwordCheck)
+    {
+        document.getElementById("signup-result").innerHTML = "Passwords do not match";
+		document.getElementById("signup-result-container").classList.add("signup-result-container-error");
+        document.getElementById("signup-result").classList.add("signup-result-container-present-text");
+        return;
+    }
 
     let tmp = {login:login,password:password,firstName,lastName};
 	//  var tmp = {login:login,password:hash};
@@ -113,6 +122,7 @@ function doRegister()
     
                 document.getElementById("signup-result").innerHTML = "Successfully Added User!";
 				document.getElementById("signup-result-container").classList.add("signup-result-container-present");
+                document.getElementById("signup-result-container").classList.remove("signup-result-container-error");
 				document.getElementById("signup-result").classList.add("signup-result-container-present-text");
             }
         };
