@@ -128,7 +128,7 @@
     text-align: center;
     height: 100px;
     width: 400px;
-    background: linear-gradient(45deg, rgb(175, 0, 0), rgb(136, 0, 136), rgb(13, 13, 255));
+    background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.911), rgba(0, 0, 255, 0.911), rgba(128, 0, 128, 0.9));
     border-radius: 25px;
 }
 

@@ -321,7 +321,7 @@ function showElementForFewSeconds()
     setTimeout(function () {
       myElement.style.display = 'none'; // Hide the element after 3 few seconds 
     }, 3000); 
-  }
+}
 
 function validAddContact(firstName, lastName, email, phone)
 {
