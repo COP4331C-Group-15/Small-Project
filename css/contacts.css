@@ -143,11 +143,11 @@
 {
     position: absolute;
     bottom: 30px;
-    height: 100px;
+    height: 70px;
     width: 200px;
     border-radius: 50px;
     border: none;
-    background-color: rgb(255, 51, 51);
+    background-color: rgb(238, 38, 38);
     color: aliceblue;
     font-size: 24px;
 }
