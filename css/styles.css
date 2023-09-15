@@ -124,7 +124,6 @@ h4
 
 .accessibility-text
 {
-    display: none;
     position: fixed;
     left: calc(50% - 330px);
     color: aliceblue;

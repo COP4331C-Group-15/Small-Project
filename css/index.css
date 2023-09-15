@@ -119,3 +119,15 @@
 {
     top: calc(50% - 30px);
 }
+
+.fade-popup 
+{
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fade-popup.active 
+{
+    display: block;
+    opacity: 1;
+}

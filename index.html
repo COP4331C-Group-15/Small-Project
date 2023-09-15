@@ -72,11 +72,11 @@
                     <p id="login-result"></p>
                 </div>
 
-                <div id="login-username-accessibility" class="accessibility-text">
+                <div id="login-username-accessibility" class="fade-popup accessibility-text">
                     <p>Username:</p>
                 </div>
 
-                <div id="login-password-accessibility" class="accessibility-text">
+                <div id="login-password-accessibility" class="fade-popup accessibility-text">
                     <p>Password:</p>
                 </div>
             </div>
@@ -94,19 +94,19 @@
             const inputBoxLoginPassPopup = document.getElementById("login-password-accessibility");
 
             inputBoxLoginUser.addEventListener('focus', () => {
-                inputBoxLoginUserPopup.style.display = 'block';
+                inputBoxLoginUserPopup.classList.add('active');
             });
 
             inputBoxLoginUser.addEventListener('blur', () => {
-                inputBoxLoginUserPopup.style.display = 'none';
+                inputBoxLoginUserPopup.classList.remove('active');
             });
 
             inputBoxLoginPass.addEventListener('focus', () => {
-                inputBoxLoginPassPopup.style.display = 'block';
+                inputBoxLoginPassPopup.classList.add('active');
             });
 
             inputBoxLoginPass.addEventListener('blur', () => {
-                inputBoxLoginPassPopup.style.display = 'none';
+                inputBoxLoginPassPopup.classList.remove('active');
             });
         </script>
     </body>
