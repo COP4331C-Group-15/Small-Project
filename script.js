@@ -235,7 +235,7 @@ function loadContacts(searchCriteria)
                     text += "<td id='phoneRow" + i + "'class='phone-cell'><span class='table-span'>" + jsonObject.results[i].Phone + "</span></td>";
                     text += "<td class='button-cell'>" +
                         "<button id='editButton" + i + "' class='edit-button' onclick='editRow(" + i + ")'>" + "<img src='images/editing.png'></button>" +
-						"<button id='saveButton" + i + "' class='save-button' onclick='saveRow(" + i + ")' style='display: none'>" + "<img src='images/editing.png'></button>" +
+						"<button id='saveButton" + i + "' class='save-button' onclick='saveRow(" + i + ")' style='display: none'>" + "<img src='images/check.png'></button>" +
                         "<button id='deleteButton" + i + "' class='delete-button' onclick='deleteRow(" + i + ")' '>" + " <img src='images/trashcan.png'></button>" + "</td>";
                     text += "<tr/>"
                 }
@@ -294,15 +294,14 @@ function addContact()
             if (this.readyState == 4 && this.status == 200) 
 			{
                 console.log("Contact has been added");
-                let CCFN = document.getElementById("create-contact-firstname").value;
-				let CCLN = document.getElementById("create-contact-lastname").value;
-				let CCEA = document.getElementById("create-contact-email").value;
-				let CCPN = document.getElementById("create-contact-phone").value;
+
+                document.getElementById("create-contact-firstname").value = "";
+                document.getElementById("create-contact-lastname").value = "";
+                document.getElementById("create-contact-email").value = "";
+                document.getElementById("create-contact-phone").value = "";
 
 				// contact added successfully message
 				showElementForFewSeconds();
-
-				CCFN = CCLN = CCEA = CCPN = "";
             }
         };
         xhr.send(jsonPayload);
