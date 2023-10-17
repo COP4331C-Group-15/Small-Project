@@ -4,6 +4,6 @@ Repo for the COP4331C Contact Manager Project
 ## Contributors
 [Tristan Barber](https://github.com/tristanbarber)
 <br> [Joshua Currie](https://github.com/joshua-currie)
-<br> [Karlos Morales](https://github.com/Karlosm018)
+<br> [Karlos Morales](https://github.com/Karlosm012)
 <br> [Saaketh Tallem](https://github.com/saaketht)
 <br> [Steven Grady](https://github.com/SSGrady)
